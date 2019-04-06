@@ -163,7 +163,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class ProductPhotoSerializer(serializers.ModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name='api_v1:photo-detail')
+    url = serializers.HyperlinkedIdentityField(view_name='api_v1:productphoto-detail')
 
     class Meta:
         model = ProductPhoto
