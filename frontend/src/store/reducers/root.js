@@ -5,7 +5,7 @@ import loginReducer from "./login";
 import registerReducer from "./register";
 import authReducer from "./auth";
 import tokenLoginReducer from "./app";
-
+import productsListReducer from "./products-list";
 
 
 
@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
     register: registerReducer,
     auth: authReducer,
     app: tokenLoginReducer,
+    productsList: productsListReducer,
 
 });
 
