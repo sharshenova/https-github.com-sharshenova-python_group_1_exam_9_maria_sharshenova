@@ -33,17 +33,15 @@ class ProductDetails extends Component {
 
     render() {
 
-        console.log(this.props, "props");
-        console.log(this.props.productDetails, 'productDetails');
 
         if (!this.props.productDetails.product) return null;
 
-        console.log(this.props.productDetails.product.category, 'this.props.productDetails.product.category');
         const categories = this.props.productDetails.product.category.map(category => category.name + " ");
+        console.log(this.props.productDetails.product.photos, 'photos');
 
         return (
             <div className="card m-3" style={{"width": "40rem"}}>
-                <SimpleSlider photos={this.props.productDetails.product.photos}/>
+                <SimpleSlider className='.Slider' photos={this.props.productDetails.product.photos}/>
                 <div className="card-body">
                     <h3 className="card-title">{this.props.productDetails.product.name}</h3>
                     <h6 className="card-subtitle mb-2 text-muted">Дата: {this.props.productDetails.product.date}</h6>

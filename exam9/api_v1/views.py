@@ -94,21 +94,6 @@ class CategoryViewSet(BaseViewSet):
         instance.save()
 
 
-# TODO: Фильтрация для всех моделей
-
-    # # переопределяем набор данных (queryset) для создания возможности фильтрации
-    # # фильтрация будет сделана из реакта, данные для нее передаются в URL get-запроса после "?"
-    # # URL + '?movie_id=' + match_params_id + '&min_start_date=' + current_date + '&max_start_date=' + next_date
-    # def get_queryset(self):
-    #     queryset = Movie.objects.active()
-    #     # movie_id = self.request.query_params.get('id', None)
-    #     # принимает параметры запроса (query_params), возвращает None если их нет
-    #     min_release_date = self.request.query_params.get('release_date', None)
-    #     if min_release_date is not None:
-    #         queryset = queryset.filter(release_date__gte=min_release_date).order_by('-release_date')
-    #     return queryset
-    # # другой способ фильтрации - использование filter вместо перелпределения queryset
-
 
 
 class ProductViewSet(BaseViewSet):
