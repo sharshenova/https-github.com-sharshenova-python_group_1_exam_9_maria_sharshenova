@@ -8,12 +8,14 @@ const USERS_URL = '/users/';
 const REGISTER_ACTIVATE_URL = '/register/activate/';
 const TOKEN_LOGIN_URL = '/token-login/';
 const PRODUCTS_URL = '/products/';
+const CATEGORIES_URL = '/categories/';
+
 
 
 const instance = axios.create({
     baseURL: BASE_URL
 });
 
-export {BASE_URL, LOGIN_URL, REGISTER_URL, USERS_URL, REGISTER_ACTIVATE_URL, TOKEN_LOGIN_URL, PRODUCTS_URL}
+export {BASE_URL, LOGIN_URL, REGISTER_URL, USERS_URL, REGISTER_ACTIVATE_URL, TOKEN_LOGIN_URL, PRODUCTS_URL, CATEGORIES_URL}
 
 export default instance;

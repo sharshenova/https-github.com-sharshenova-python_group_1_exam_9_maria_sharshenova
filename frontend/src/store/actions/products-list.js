@@ -5,6 +5,7 @@ import axios, {PRODUCTS_URL} from "../../api-urls";
 export const PRODUCT_LIST_REQUEST_SUCCESS = "PRODUCT_LIST_REQUEST_SUCCESS";
 
 
+
 export const loadProducts = () => {
     return dispatch => {
         axios.get(PRODUCTS_URL)
@@ -15,3 +16,5 @@ export const loadProducts = () => {
             .catch(error => console.log(error));
     }
 };
+
+

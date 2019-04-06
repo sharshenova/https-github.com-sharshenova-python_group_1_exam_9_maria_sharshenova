@@ -6,6 +6,7 @@ import registerReducer from "./register";
 import authReducer from "./auth";
 import tokenLoginReducer from "./app";
 import productsListReducer from "./products-list";
+import categoriesListReducer from "./categories-list";
 
 
 
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
     auth: authReducer,
     app: tokenLoginReducer,
     productsList: productsListReducer,
+    categoriesList: categoriesListReducer
 
 });
 
