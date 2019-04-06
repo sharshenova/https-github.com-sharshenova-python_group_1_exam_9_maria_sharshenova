@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
     'corsheaders',
+    'rest_framework',
+    'rest_framework.authtoken',
     'webapp',
     'api_v1',
 
@@ -90,20 +91,20 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+# AUTH_PASSWORD_VALIDATORS = [
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+#     },
+# ]
 
 
 # Internationalization
@@ -111,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bishkek'
 
 USE_I18N = True
 
@@ -127,3 +128,34 @@ STATIC_URL = '/static/'
 
 # отключаем проверку источника запросов для этапа разработки проекта
 CORS_ORIGIN_ALLOW_ALL = True
+
+# для загрузки картинок
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/uploads/'
+
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+
+
+# вариант с отправкой почты через smtp-сервер, что ближе к "боевым" условиям
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# данные берутся из личного кабинета mailtrap.io и копируются в cinema/settings_local.py
+# файл settings_local.py содержит настройки EMAIL_HOST, EMAIL_HOST_USERNAME, EMAIL_HOST_PASSWORD, EMAIL_PORT
+# и может содержать другие настройки проекта, особые для вашего локального(!) окружения проекта.
+# from .settings_local import *
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'fabba5445a83b1'
+EMAIL_HOST_PASSWORD = 'a3af46217d2883'
+EMAIL_PORT = '2525'
+
+EMAIL_DEFAULT_FROM = "admin@cinema.app"
+HOST_URL = "http://localhost:3000"
+
+# срок действия токена регистрации
+TOKEN_EXPIRATION_HOURS = 72

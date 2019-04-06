@@ -1,0 +1,16 @@
+.menuItem {
+    font-weight: bold;
+    color: white;
+}
+
+.menuItem:hover {
+    color: gold;
+}
+
+.navlink {
+    color: black;
+}
+
+.navlink:hover {
+    color: gold;
+}

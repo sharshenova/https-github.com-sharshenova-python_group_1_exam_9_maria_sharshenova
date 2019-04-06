@@ -4,7 +4,24 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import {createStore, applyMiddleware} from 'redux'
+import rootReducer from './store/reducers/root'
+import {Provider} from 'react-redux'
+import thunkMiddleware from 'redux-thunk';
+
+// TODO: убрать, как только все запросы "переедут" в actions.js
+import axios from 'axios';
+import {BASE_URL} from "./api-urls";
+// задаем дефолтный baseURL, чтобы при axios-запросах его не прописывать
+axios.defaults.baseURL = BASE_URL;
+
+
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
+
+ReactDOM.render(
+    <Provider store={store}><App /></Provider>,
+    document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
