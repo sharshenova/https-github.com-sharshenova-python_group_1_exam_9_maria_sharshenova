@@ -7,7 +7,7 @@ import authReducer from "./auth";
 import tokenLoginReducer from "./app";
 import productsListReducer from "./products-list";
 import categoriesListReducer from "./categories-list";
-
+import productDetailsReducer from "./product-details";
 
 
 const rootReducer = combineReducers({
@@ -16,7 +16,8 @@ const rootReducer = combineReducers({
     auth: authReducer,
     app: tokenLoginReducer,
     productsList: productsListReducer,
-    categoriesList: categoriesListReducer
+    categoriesList: categoriesListReducer,
+    productDetails: productDetailsReducer
 
 });
 

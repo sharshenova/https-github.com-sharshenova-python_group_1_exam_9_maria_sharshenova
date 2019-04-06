@@ -11,6 +11,7 @@ import RegisterActivate from "./containers/Register/RegisterActivate/RegisterAct
 import UserSettings from "./containers/UserSettings/UserSettings";
 import {tokenLogin} from "./store/actions/token-login";
 import ProductsList from "./containers/ProductsList/ProductsList";
+import ProductDetails from "./containers/ProductDetails/ProductDetails";
 import {connect} from "react-redux";
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
                             <Route path="/register" component={Register} exact/>
                             <Route path="/register/activate" component={RegisterActivate}/>
                             <AuthRoute path="/users/:id" component={UserSettings}/>
+                            <Route path="/products/:id" component={ProductDetails} exact/>
                             <Route path="/" component={ProductsList} exact/>
                         </Switch>
                     </Layout>
@@ -43,7 +45,5 @@ const mapStateToProps = state => state.app;
 const mapDispatchToProps = dispatch => ({
     tokenLogin: () => dispatch(tokenLogin())
 });
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
